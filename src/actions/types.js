@@ -1,1 +1,1 @@
-export const CHANGE_AUTH = 'Change auth bool'
+export const CHANGE_AUTH = 'change_auth';
