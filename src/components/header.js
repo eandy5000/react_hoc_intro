@@ -23,8 +23,6 @@ class Header extends Component {
     }
 
     render() {
-        console.log(this.props.authenticated)
-        
         return (
             <nav>
                 <h4>Secure App</h4>
