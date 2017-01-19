@@ -1,14 +1,30 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import * as actions from '../actions/index'
 
 class Header extends Component {
+    isAuth() {
+        return this.props.authenticate(!this.props.authenticated)
+    }
+    
     authButton() {
+        if(this.props.authenticated) {
+            return (
+                <button onClick={ () => this.isAuth() } >Sign out</button>
+            )
+        }
+        
         return (
-            <button>Sign in</button>
-        )
+                <button onClick={() => this.props.authenticate(true)}>Sign in</button>
+            )
+        
+
     }
 
     render() {
+        console.log(this.props.authenticated)
+        
         return (
             <nav>
                 <h4>Secure App</h4>
@@ -28,4 +44,10 @@ class Header extends Component {
     }
 }
 
-export default Header
+function mapStateToProps(state) {
+    return {
+        authenticated: state.authenticated
+    }
+}
+
+export default connect(mapStateToProps, actions)(Header)

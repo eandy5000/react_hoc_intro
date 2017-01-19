@@ -5,7 +5,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
 import App from './components/app'
-import reducer from './reducers'
+import reducer from './reducers/index'
 import Home from './components/home'
 import Resources from './components/resources'
 
