@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 
+import requireAuth from './components/require_authentication'
 import App from './components/app'
 import reducer from './reducers/index'
 import Home from './components/home'
@@ -16,7 +17,7 @@ ReactDOM.render(
         <Router history={browserHistory} >
             <Route path="/" component={App} >
                 <IndexRoute component={Home} />
-                <Route path="resources" component={Resources} />
+                <Route path="resources" component={requireAuth(Resources)} />
             </Route>
             
         </Router>
